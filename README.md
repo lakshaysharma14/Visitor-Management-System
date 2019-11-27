@@ -42,7 +42,7 @@ After this, you have to download MySql for connecting the app to the database.
 Details for configuring it are mentioned in the setup.txt file .
 
 <p align="center">
-  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/sql_table.PNG" width="500" title="hover text">
+  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/sql_table.png" width="500" title="hover text">
 </p>
 
 Now we are ready to go...
