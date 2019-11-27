@@ -13,18 +13,18 @@ It has different sub-sections on its FrontPage. Button for adding new visitors. 
 4.)Check-In Time
 
 <p align="center">
-  <img src="https://github.com/lakshaysharma14/Visitor-Management-System---Innovacer/blob/master/homepage.png" width="500" title="hover text">
+  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/homepage.png" width="500" title="hover text">
 </p>
 
 After the user enters the check-in time the details of the visitor are sent through Email and SMS to the host.
 
 <p align="center">
-  <img src="https://github.com/lakshaysharma14/Visitor-Management-System---Innovacer/blob/master/add_visitor.png" width="500" title="hover text">
+  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/add_visitor.png" width="500" title="hover text">
 </p>
 
 Once the user wants to check out there is an option of editing the visiting details(EDIT BUTTON) for providing the check out time. Providing check out time, the details of the visit are sent to the visitor on his email and mobile.
 <p align="center">
-  <img src="https://github.com/lakshaysharma14/Visitor-Management-System---Innovacer/blob/master/chkout.png" width="500" title="hover text">
+  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/chkout.png" width="500" title="hover text">
 </p>
 
 Details of the host are mentioned in the config.json file and that details can be altered.
@@ -42,7 +42,7 @@ After this, you have to download MySql for connecting the app to the database.
 Details for configuring it are mentioned in the setup.txt file .
 
 <p align="center">
-  <img src="https://github.com/lakshaysharma14/Visitor-Management-System---Innovacer/blob/master/sql_table.PNG" width="500" title="hover text">
+  <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/sql_table.PNG" width="500" title="hover text">
 </p>
 
 Now we are ready to go...
