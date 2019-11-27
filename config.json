@@ -1,0 +1,25 @@
+{
+    "host":{
+          "name":"Mr Lakshay Sharma",
+          "email":"laksh1013shar@gmail.com",
+          "address":"XYZ Towers",
+          "mobile_number":"+919599029231"
+    },
+    "database":{
+    	"host_name":"localhost",
+    	"username":"root",
+    	"password":"j@tinkum@r1",
+    	"database_name":"crud_db"
+    },
+    "twilio":{
+    	"accountSid":"AC155f88a30f7e40c9f0971df924dc2dbe",
+    	"authToken":"23947bdb0fd6c271371e501059c8dbed",
+    	"from_number":"+12565734933",
+    	"to_number":"+919599029231"
+    },
+    "email_setting":{
+    	"email":"laksh1013shar@gmail.com",
+		"password":"spyfjeabhmazovtt",
+		"host":"smtp.gmail.com"
+    }
+}
