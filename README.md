@@ -27,8 +27,14 @@ Once the user wants to check out there is an option of editing the visiting deta
   <img src="https://github.com/lakshaysharma14/Innovacer_Project/blob/master/chkout.png" width="500" title="hover text">
 </p>
 
-Details of the host are mentioned in the config.json file and that details can be altered.
-Also you have to mention twillo account details so that you can enable the twillo API to send sms.
+##### Details of the host are mentioned in the config.json file and that details can be altered according to need.
+
+##### We have used twillo as an API for sending sms to mobile.You can create a trial account and just mention the following details to connect with it :-
+
+1.) Authorization sid and token
+2.) Free trial number is given to the user for free of charge that you can use to enter it in the "From" field in config.json file.
+3.) Number verified with twillo account is used to enter in "to" field in config.json .
+
 Subsequently there is a prototype email mentioned used for sending Email to Users.
 
 ### Installation
