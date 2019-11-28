@@ -3,7 +3,7 @@
           "name":"Mr Vikas Khanna",
           "email":"manageviz@gmail.com",
           "address":"Vikas Corporate Towers",
-          "mobile_number":"+91********31"
+          "mobile_number":"+919599029231"
     },
     "database":{
     	"host_name":"localhost",
@@ -12,10 +12,10 @@
     	"database_name":"crud_db"
     },
     "twilio":{
-    	"accountSid":"AC155f88a30f7e40c9f0971df924dc2dbe",
-    	"authToken":"23947bdb0fd6c271371e501059c8dbed",
-    	"from_number":"+12565734933",
-    	"to_number":"+919*******31"
+    	"accountSid":" ",
+    	"authToken":" ",
+    	"from_number":" ",
+    	"to_number":"+919599029231"
     },
     "email_setting":{
     	"email":"manageviz@gmail.com",
