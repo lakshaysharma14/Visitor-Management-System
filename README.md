@@ -28,7 +28,7 @@ Once the user wants to check out there is an option of editing the visiting deta
 </p>
 
 Details of the host are mentioned in the config.json file and that details can be altered.
-
+Subsequently there is a prototype email mentioned used for sending Email to Users.
 
 ### Installation
 
