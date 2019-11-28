@@ -28,6 +28,7 @@ Once the user wants to check out there is an option of editing the visiting deta
 </p>
 
 Details of the host are mentioned in the config.json file and that details can be altered.
+Also you have to mention twillo account details so that you can enable the twillo API to send sms.
 Subsequently there is a prototype email mentioned used for sending Email to Users.
 
 ### Installation
