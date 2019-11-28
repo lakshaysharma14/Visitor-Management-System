@@ -37,9 +37,11 @@ Once the user wants to check out there is an option of editing the visiting deta
 
 3.) Number verified with twillo account is used to enter in "to" field in config.json .
 
+After this we are ready to go and are connected with Twillo API.
+
 Subsequently we have used smtp protocol to send email to the user .
 
-### Installation
+## Installation
 
 Use the node package manager [npm](https://www.npmjs.com/) to first install all modules listed in package.json.
 
