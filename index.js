@@ -1,14 +1,6 @@
 const config = require("./config.json");
 const path = require("path");
 const express = require("express");
-const hbs = require("hbs");
-
-//use bodyParser middleware
-const bodyParser = require("body-parser");
-
-//use mysql database
-const mysql = require("mysql");
-const app = express();
 
 //====================================================================================================
 var nodemailer = require("nodemailer");
