@@ -23,7 +23,7 @@ const conn = mysql.createConnection({
   user: config.database.username,
   password: config.database.password,
   database: config.database.database_name,
-  port:config.database.port,
+  port:8889,
   socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
