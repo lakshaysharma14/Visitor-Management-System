@@ -1,19 +1,20 @@
 const config = require("./config.json");
-//use path module
 const path = require("path");
-//use express module
 const express = require("express");
-//use hbs view engine
 const hbs = require("hbs");
+
 //use bodyParser middleware
 const bodyParser = require("body-parser");
+
 //use mysql database
 const mysql = require("mysql");
 const app = express();
 
+//====================================================================================================
+
 var nodemailer = require("nodemailer");
 
-//Create Connection
+//================================Create Connection======================================
 const conn = mysql.createConnection({
   host: config.database.host_name,
   user: config.database.username,
@@ -21,9 +22,12 @@ const conn = mysql.createConnection({
   database: config.database.database_name,
 });
 
+//===================================== Setting Up Twillo ==================================
 const accountSid = config.twilio.accountSid;
 const authToken = config.twilio.authToken;
 const client = require("twilio")(accountSid, authToken);
+
+//============================================ Nodemailer ==================================
 
 var transporter = nodemailer.createTransport({
   host: config.email_setting.host,
@@ -36,7 +40,7 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-//connect to database
+//======================================connect to database =====================================
 conn.connect((err) => {
   if (err) throw err;
   console.log("Mysql Connected...");
@@ -51,7 +55,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //set folder public as static folder for static file
 app.use("/assets", express.static(__dirname + "/public"));
 
-//route for homepage
+//=========================================Route for Homepage ==========================================
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM visitors";
   let query = conn.query(sql, (err, results) => {
@@ -62,7 +66,7 @@ app.get("/", (req, res) => {
   });
 });
 
-//route for insert data
+//==========================================Route for Insert data =======================================
 app.post("/save", (req, res) => {
   let data = {
     name: req.body.name,
@@ -142,7 +146,7 @@ app.post("/save", (req, res) => {
   });
 });
 
-//route for update data
+//==================================== Route for Update Data ===============================================
 app.post("/update", (req, res) => {
   //console.log(req.body.checkout);
   let sql =

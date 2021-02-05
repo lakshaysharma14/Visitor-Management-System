@@ -1,25 +1,25 @@
 {
     "host":{
-          "name":"Mr Vikas Khanna",
+          "name":"Pearson Spector Litt",
           "email":"manageviz@gmail.com",
-          "address":"Vikas Corporate Towers",
+          "address":"NYU Towers New York",
           "mobile_number":"+919599029231"
     },
     "database":{
     	"host_name":"localhost",
     	"username":"root",
-    	"password":"**********",
+    	"password":"lakshay14",
     	"database_name":"crud_db"
     },
     "twilio":{
-    	"accountSid":" ",
-    	"authToken":" ",
-    	"from_number":" ",
+    	"accountSid":"AC6d3672e8603e713b32064e64abc5433a",
+    	"authToken":"77b36a647a2b60ebf2d133bd4f103829",
+    	"from_number":"+12512205974",
     	"to_number":"+919599029231"
     },
     "email_setting":{
     	"email":"manageviz@gmail.com",
-		"password":"hpcqezyunhazwhfo",
-		"host":"smtp.gmail.com"
+		  "password":"hpcqezyunhazwhfo",
+		  "host":"smtp.gmail.com"
     }
 }
