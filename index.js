@@ -12,6 +12,8 @@ const mysql = require("mysql"); //use mysql database
 const app = express();
 var nodemailer = require("nodemailer");
 
+const PORT = process.env.PORT || 8000;
+
 //____________________________ Establishing and Setting All Connections____________________
 
 // Create Connection ( All these details are stored in a separate config.js file)
