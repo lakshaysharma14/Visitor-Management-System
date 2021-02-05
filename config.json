@@ -6,10 +6,11 @@
           "mobile_number":"+919599029231"
     },
     "database":{
-    	"host_name":"localhost",
+    	"host_name":"127.0.0.1",
     	"username":"root",
     	"password":"lakshay14",
-    	"database_name":"crud_db"
+        "database_name":"crud_db",
+        "port":"3306"
     },
     "twilio":{
     	"accountSid":"AC6d3672e8603e713b32064e64abc5433a",
