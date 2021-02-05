@@ -23,8 +23,7 @@ const conn = mysql.createConnection({
   user: config.database.username,
   password: config.database.password,
   database: config.database.database_name,
-  port:8889,
-  socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+  port:8889
 });
 
 //===================================== Setting Up Twillo ==================================
