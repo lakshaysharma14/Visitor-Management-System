@@ -19,11 +19,11 @@ const PORT = process.env.PORT || 8000;
 // Create Connection ( All these details are stored in a separate config.js file)
 
 const conn = mysql.createConnection({
-  host: config.database.host_name,
+  host:"192.168.12.166" ,
   user: config.database.username,
   password: config.database.password,
   database: config.database.database_name,
-  port:8889
+  port:config.database.port
 });
 
 //===================================== Setting Up Twillo ==================================
