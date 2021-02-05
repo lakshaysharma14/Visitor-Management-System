@@ -1,7 +1,6 @@
 const config = require("./config.json");
 const path = require("path");
 const express = require("express");
-<<<<<<< HEAD
 const hbs = require("hbs");
 
 //use bodyParser middleware
@@ -12,11 +11,8 @@ const mysql = require("mysql");
 const app = express();
 
 //====================================================================================================
-
 var nodemailer = require("nodemailer");
-
 //================================Create Connection======================================
-=======
 const hbs = require("hbs"); //use hbs view engine
 const bodyParser = require("body-parser");//use bodyParser middleware
 const mysql = require("mysql"); //use mysql database
@@ -27,7 +23,7 @@ var nodemailer = require("nodemailer");
 //____________________________ Establishing and Setting All Connections____________________
 
 // Create Connection ( All these details are stored in a separate config.js file)
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
+
 const conn = mysql.createConnection({
   host: config.database.host_name,
   user: config.database.username,
@@ -35,21 +31,15 @@ const conn = mysql.createConnection({
   database: config.database.database_name,
 });
 
-<<<<<<< HEAD
 //===================================== Setting Up Twillo ==================================
-=======
 // Setting Credentials for Twillo API 
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 const accountSid = config.twilio.accountSid;
 const authToken = config.twilio.authToken;
 const client = require("twilio")(accountSid, authToken);
 
-<<<<<<< HEAD
 //============================================ Nodemailer ==================================
 
-=======
 // Setting Nodemailer Transporter
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 var transporter = nodemailer.createTransport({
   host: config.email_setting.host,
   port: 587,
@@ -61,11 +51,9 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-<<<<<<< HEAD
 //======================================connect to database =====================================
-=======
+
 //Connecting to Mysql Database
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 conn.connect((err) => {
   if (err) throw err;
   console.log("Mysql Connected...");
@@ -78,16 +66,13 @@ app.set("view engine", "hbs");//set view engine
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-<<<<<<< HEAD
-//=========================================Route for Homepage ==========================================
-=======
+//=========================================Route for Homepage =========================================
 app.use("/assets", express.static(__dirname + "/public"));//set folder public as static folder for static file
 
 //______________________________Different Routes ___________________________________________
 
 //***Homepage***
 
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM visitors";
   let query = conn.query(sql, (err, results) => {
@@ -98,13 +83,10 @@ app.get("/", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
 //==========================================Route for Insert data =======================================
-=======
 
 //***Inserting User Details in Database***
 
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 app.post("/save", (req, res) => {
   
   let data =
@@ -170,12 +152,10 @@ app.post("/save", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
 //==================================== Route for Update Data ===============================================
-=======
+
 //***Updating Checkout Time***
 
->>>>>>> 0a213e3be974677002d5e634c60f8ca812505150
 app.post("/update", (req, res) => {
   //console.log(req.body.checkout);
   let sql = "UPDATE visitors SET checkout='" + req.body.checkout + "' WHERE id=" + req.body.id;
