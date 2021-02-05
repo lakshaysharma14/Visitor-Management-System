@@ -3,24 +3,24 @@
           "name":"Pearson Spector Litt",
           "email":"manageviz@gmail.com",
           "address":"NYU Towers New York",
-          "mobile_number":"+919599029231"
+          "mobile_number":"xxxx"
     },
     "database":{
     	"host_name":"127.0.0.1",
     	"username":"root",
-    	"password":"lakshay14",
+    	"password":"xxxx",
         "database_name":"crud_db",
         "port":"3306"
     },
     "twilio":{
-    	"accountSid":"AC6d3672e8603e713b32064e64abc5433a",
-    	"authToken":"77b36a647a2b60ebf2d133bd4f103829",
-    	"from_number":"+12512205974",
-    	"to_number":"+919599029231"
+    	"accountSid":"xxxxx",
+    	"authToken":"xxxx",
+    	"from_number":"xxxx",
+    	"to_number":"xxxx"
     },
     "email_setting":{
     	"email":"manageviz@gmail.com",
-		  "password":"hpcqezyunhazwhfo",
+		  "password":"xxxxxxxxxx",
 		  "host":"smtp.gmail.com"
     }
 }
