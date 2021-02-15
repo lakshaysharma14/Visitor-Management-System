@@ -1,18 +1,21 @@
-const config = require("./config.json");
+const config = require("./config.json");                                      // To import all the config details
 const path = require("path");
-const express = require("express");
-
-//====================================================================================================
-var nodemailer = require("nodemailer");
-//================================Create Connection======================================
-const hbs = require("hbs"); //use hbs view engine
-const bodyParser = require("body-parser");//use bodyParser middleware
-const mysql = require("mysql"); //use mysql database
+const express = require("express");   
+var nodemailer = require("nodemailer");                                     // For sending mail
+const hbs = require("hbs");                                                //  hbs view engine
+const bodyParser = require("body-parser");                                //use bodyParser middleware
+const mysql = require("mysql");                                          //use mysql database
 
 const app = express();
-var nodemailer = require("nodemailer");
-
 const PORT = process.env.PORT || 8000;
+
+
+
+//_____________________________Setting Configuration for Using Handlebars(hbs)____________
+
+app.set("views", path.join(__dirname, "views"));                       // set views file
+app.set("view engine", "hbs");                                        //  set view engine
+app.use("/assets", express.static(__dirname + "/public"));           //   set public as static folder for static file
 
 //____________________________ Establishing and Setting All Connections____________________
 
@@ -26,15 +29,15 @@ const conn = mysql.createConnection({
   port:config.database.port
 });
 
-//===================================== Setting Up Twillo ==================================
 // Setting Credentials for Twillo API 
+
 const accountSid = config.twilio.accountSid;
 const authToken = config.twilio.authToken;
 const client = require("twilio")(accountSid, authToken);
 
-//============================================ Nodemailer ==================================
+//___________________________________ Nodemailer ________________________________________________
 
-// Setting Nodemailer Transporter
+// Step 1 - Setting Nodemailer Transporter
 var transporter = nodemailer.createTransport({
   host: config.email_setting.host,
   port: 587,
@@ -46,7 +49,7 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-//======================================connect to database =====================================
+//_______________________________________Connecting to database _____________________________________
 
 //Connecting to Mysql Database
 conn.connect((err) => {
@@ -54,17 +57,11 @@ conn.connect((err) => {
   console.log("Mysql Connected...");
 });
 
-// Setting Configuration for Using Handlebars(hbs)
-app.set("views", path.join(__dirname, "views"));//set views file
-app.set("view engine", "hbs");//set view engine
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//=========================================Route for Homepage =========================================
-app.use("/assets", express.static(__dirname + "/public"));//set folder public as static folder for static file
 
-//______________________________Different Routes ___________________________________________
+//__________________________________________Different Routes ___________________________________________
 
 //***Homepage***
 
@@ -72,13 +69,11 @@ app.get("/", (req, res) => {
   let sql = "SELECT * FROM visitors";
   let query = conn.query(sql, (err, results) => {
     if (err) throw err;
-    res.render("visitor_view", {
-      results: results,
-    });
+    res.render("visitor_view", {results: results,}   // Passing the fetched result to our view.hbs file
+   );
   });
 });
 
-//==========================================Route for Insert data =======================================
 
 //***Inserting User Details in Database***
 
@@ -93,30 +88,36 @@ app.post("/save", (req, res) => {
   };
   
   let sql = "INSERT INTO visitors SET ?";
-  let query = conn.query(sql,data,(err, results) =>{
+  
+  let query = conn.query(sql, data , (err, results) => {
       if (err) throw err;
       
-      let sql1 = "SELECT * FROM visitors WHERE id=" + results.insertId;
-      let query1 = conn.query(sql1, (err, result) => {
+      let sql1 = "SELECT * FROM visitors WHERE id=" + results.insertId;     // Here results.insertId is last id on which record has been inserted
+      let query1 = conn.query(sql1, (err, result) => {                      // Here we are now displaying the newly inserted row in our tab;e
+        
         if (err) throw err;
         console.log(result);
-        let htmlBody = "New visitor information : \n";
+       
+        
+        let htmlBody = "New visitor information : \n";                     // Preparing Msg for sending Mail to the Host of the Meeting 
         htmlBody += "Name : " + result[0].name + " \n " + "\n" + 
         " Email : " +  result[0].email_id + " \n " + "\n" +
         "Mobile Number : " + result[0].mobile_no + " \n " + "\n" +
         " Check In Date Time :" + result[0].checkin;
       
-        var mailOptions = 
+        
+        var mailOptions =                                                   // Step 2 - Setting Mail Options of Nodemailer
         {
           from: config.host.email,
           to: config.host.email,
           subject: "New visitor has joined.",
           html: htmlBody,
         };
-        transporter.sendMail(mailOptions, function (error, info)
+        transporter.sendMail(mailOptions, function (error, info)           // Step 3 -  Sending mails through sendMail() method
         {
           if (error)
           { console.log(error); } 
+          
           else 
           {
               let MobileBody = "New visitor information : ";
@@ -142,12 +143,10 @@ app.post("/save", (req, res) => {
          }
       });
     });
-
     res.redirect("/");
   });
 });
 
-//==================================== Route for Update Data ===============================================
 
 //***Updating Checkout Time***
 
@@ -162,8 +161,9 @@ app.post("/update", (req, res) => {
       if (err) throw err;
 
       let data = result[0];
-      //================================= Sending Mail To Visitor =======================================
-      let htmlBody = `Vistor Information 
+    
+     
+      let htmlBody = `Vistor Information                                    //Preparing Msg for sending Mail to the Visitor of the 
       <br> Name : ${data.name}  
       <br> Email : ${data.email_id} 
       <br> Mobile Number : ${data.mobile_no}
